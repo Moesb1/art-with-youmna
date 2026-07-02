@@ -41,12 +41,12 @@
   .scene.active .halo{opacity:1}
 
   .art-wrap{position:relative;display:inline-block}
-  .art{display:block;filter:drop-shadow(0 10px 40px rgba(0,0,0,.6));opacity:0;transform:scale(.86) translateY(24px);filter:blur(6px)}
+  /* transform + opacity only — no CSS filter, so transparent PNGs stay transparent on iOS/Safari */
+  .art{display:block;opacity:0;transform:scale(.86) translateY(24px)}
   .scene.active .art{animation:reveal 1.5s cubic-bezier(.18,.9,.24,1) forwards}
   @keyframes reveal{
-    0%{opacity:0;transform:scale(.86) translateY(24px);filter:blur(10px) drop-shadow(0 10px 40px rgba(0,0,0,.6))}
-    60%{opacity:1;filter:blur(0) drop-shadow(0 10px 40px rgba(0,0,0,.6))}
-    100%{opacity:1;transform:scale(1) translateY(0);filter:blur(0) drop-shadow(0 10px 40px rgba(0,0,0,.6))}}
+    0%{opacity:0;transform:scale(.86) translateY(24px)}
+    100%{opacity:1;transform:scale(1) translateY(0)}}
 
   /* light sweep */
   .art-wrap::after{content:'';position:absolute;top:-10%;left:-30%;width:35%;height:120%;
